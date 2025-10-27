@@ -1,0 +1,76 @@
+{
+  // Completely disable all formatting
+  "editor.defaultFormatter": null,
+  "editor.formatOnSave": false,
+  "editor.formatOnPaste": false,
+  "editor.formatOnType": false,
+  "editor.autoIndent": "none",
+  "editor.insertSpaces": true,
+  "editor.tabSize": 4,
+  "editor.detectIndentation": false,
+  
+  // Disable code actions that might trigger formatting
+  "editor.codeActionsOnSave": {},
+  
+  // Disable language-specific formatting
+  "javascript.format.enable": false,
+  "typescript.format.enable": false,
+  "javascript.format.insertSpaceAfterCommaDelimiter": false,
+  "javascript.format.insertSpaceAfterFunctionKeywordForAnonymousFunctions": false,
+  "javascript.format.insertSpaceAfterKeywordsInControlFlowStatements": false,
+  "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyParenthesis": false,
+  "javascript.format.insertSpaceAfterSemicolonInForStatements": false,
+  "javascript.format.insertSpaceBeforeAndAfterBinaryOperators": false,
+  "javascript.format.placeOpenBraceOnNewLineForControlBlocks": false,
+  "javascript.format.placeOpenBraceOnNewLineForFunctions": false,
+  
+  // Disable suggestions that might interfere
+  "javascript.suggest.autoImports": false,
+  "typescript.suggest.autoImports": false,
+  "editor.suggest.snippetsPreventQuickSuggestions": false,
+  
+  // Disable ESLint formatting but keep error checking
+  "eslint.format.enable": false,
+  "eslint.alwaysShowStatus": true,
+  "eslint.codeAction.disableRuleComment": {
+    "enable": false
+  },
+  "eslint.codeAction.showDocumentation": {
+    "enable": false
+  },
+  
+  // Disable Prettier completely
+  "prettier.enable": false,
+  
+  // Other settings
+  "editor.wordWrap": "off",
+  "editor.rulers": [120],
+  
+  // Language-specific overrides to be absolutely sure
+  "[javascript]": {
+    "editor.defaultFormatter": null,
+    "editor.formatOnSave": false,
+    "editor.formatOnPaste": false,
+    "editor.formatOnType": false,
+    "editor.autoIndent": "none",
+    "editor.codeActionsOnSave": {}
+  },
+  "[javascriptreact]": {
+    "editor.defaultFormatter": null,
+    "editor.formatOnSave": false,
+    "editor.formatOnPaste": false,
+    "editor.formatOnType": false,
+    "editor.autoIndent": "none"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": null,
+    "editor.formatOnSave": false,
+    "editor.formatOnPaste": false,
+    "editor.formatOnType": false,
+    "editor.autoIndent": "none"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "vscode.json-language-features",
+    "editor.formatOnSave": true
+  }
+}
