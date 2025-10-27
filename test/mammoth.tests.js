@@ -336,10 +336,31 @@ test('given external file access is disabled by default then error if images sto
     });
 });
 
-test('simple list is converted to list elements', function() {
+test('simple list is converted to list elements with: bullet', function() {
     var docxPath = path.join(__dirname, "test-data/simple-list.docx");
     return mammoth.convertToHtml({path: docxPath}).then(function(result) {
-        assert.equal(result.value, '<ul><li>Apple</li><li>Banana</li></ul>');
+        assert.equal(result.value, '<ul data-num-fmt="bullet" data-start="1" data-num-fmt="bullet" data-lvl-text="" data-lvl-tc="left"><li>Apple</li><li>Banana</li></ul>');
+    });
+});
+
+test('simple list is converted to list elements with: dash', function() {
+    var docxPath = path.join(__dirname, "test-data/simple-list-dash.docx");
+    return mammoth.convertToHtml({path: docxPath}).then(function(result) {
+        assert.equal(result.value, '<ul data-num-fmt="bullet" data-lvl-text="-" data-start="1" data-lvl-jc="left" data-level="0"><li>Apple</li><li>Banana</li></ul>');
+    });
+});
+
+test('simple list is converted to list elements with: number', function() {
+    var docxPath = path.join(__dirname, "test-data/simple-list-number.docx");
+    return mammoth.convertToHtml({path: docxPath}).then(function(result) {
+        assert.equal(result.value, '<ol data-num-fmt="decimal" data-lvl-text="%1." data-start="1" data-lvl-jc="left" data-level="0"><li>Apple</li><li>Banana</li></ol>');
+    });
+});
+
+test('simple list is converted to list elements with: parantes', function() {
+    var docxPath = path.join(__dirname, "test-data/simple-list-parantes-letter.docx");
+    return mammoth.convertToHtml({path: docxPath}).then(function(result) {
+        assert.equal(result.value, '<ol data-num-fmt="lowerLetter" data-lvl-text="%1)" data-start="1" data-lvl-jc="left" data-level="0"><li>Apple</li><li>Banana</li></ol>');
     });
 });
 
