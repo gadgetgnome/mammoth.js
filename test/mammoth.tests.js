@@ -339,7 +339,49 @@ test('given external file access is disabled by default then error if images sto
 test('simple list is converted to list elements', function() {
     var docxPath = path.join(__dirname, "test-data/simple-list.docx");
     return mammoth.convertToHtml({path: docxPath}).then(function(result) {
-        assert.equal(result.value, '<ul><li>Apple</li><li>Banana</li></ul>');
+        assert.equal(result.value, '<ul data-list-type="bullet" start="1"><li>Apple</li><li>Banana</li></ul>');
+    });
+});
+
+test('simple-list-dash.docx is converted to list elements', function() {
+    var docxPath = path.join(__dirname, "test-data/simple-list-dash.docx");
+    return mammoth.convertToHtml({path: docxPath}).then(function(result) {
+        assert.equal(result.value, '<ul data-list-type="strek" start="1"><li>Apple</li><li>Banana</li></ul>');
+    });
+});
+
+test('simple-list-number.docx is converted to list elements', function() {
+    var docxPath = path.join(__dirname, "test-data/simple-list-number.docx");
+    return mammoth.convertToHtml({path: docxPath}).then(function(result) {
+        assert.equal(result.value, '<ol data-list-type="number" start="1"><li>Apple</li><li>Banana</li></ol>');
+    });
+});
+
+test('simple-list-number-start-on-3.docx is converted to list elements', function() {
+    var docxPath = path.join(__dirname, "test-data/simple-list-number-start-on-3.docx");
+    return mammoth.convertToHtml({path: docxPath}).then(function(result) {
+        assert.equal(result.value, '<ol data-list-type="number" start="3"><li>Apple</li><li>Banana</li></ol>');
+    });
+});
+
+test('simple-list-parantes-letter.docx is converted to list elements', function() {
+    var docxPath = path.join(__dirname, "test-data/simple-list-parantes-letter.docx");
+    return mammoth.convertToHtml({path: docxPath}).then(function(result) {
+        assert.equal(result.value, '<ol data-list-type="alpha" start="1"><li>Apple</li><li>Banana</li></ol>');
+    });
+});
+
+test('simple-list-other-letter.docx is converted to list elements', function() {
+    var docxPath = path.join(__dirname,  "test-data/simple-list-other-letter.docx");
+    return mammoth.convertToHtml({path: docxPath}).then(function(result) {
+        assert.equal(result.value, '<ol data-list-type="alpha-d" start="1"><li>Apple</li><li>Banana</li></ol>');
+    });
+});
+
+test('simple-list-parantes-letter-start-c.docx is converted to list elements', function() {
+    var docxPath = path.join(__dirname, "test-data/simple-list-parantes-letter-start-c.docx");
+    return mammoth.convertToHtml({path: docxPath}).then(function(result) {
+        assert.equal(result.value, '<ol data-list-type="alpha" start="3"><li>Charlie</li><li>Delta</li></ol><ol data-list-type="alpha" start="7"><li>Golf</li><li>Hotel</li></ol>');
     });
 });
 
